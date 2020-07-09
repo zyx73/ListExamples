@@ -1,0 +1,16 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Func<int, int> sq=x=>x*x;
+		Func<int, string> sq2=x=>(x*x).ToString();
+		
+		Console.WriteLine(sq(2));
+		Console.WriteLine(sq2(3));
+	}
+}
