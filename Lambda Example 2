@@ -1,0 +1,12 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Func<int, int, bool> TestEqualInt = (x, y) => x == y;
+		
+		Console.WriteLine(TestEqualInt(2,3));
+		Console.WriteLine(TestEqualInt(2,2));
+	}
+}
