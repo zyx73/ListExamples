@@ -1,0 +1,41 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+					
+public class P:Object
+{
+  public string prod {get; set;}
+  public int pris {get;set;}
+
+  public P(string p1, int p2)
+  {
+    prod=p1;
+    pris=p2;
+  }
+  
+  public override string ToString()
+  {
+    return "HH";
+  }
+} 
+
+
+public class Program
+{
+	public static void Main()
+	{
+    P pp=new P("jj",2);
+
+		List<P> ppp=new List<P>();
+		ppp.Add(new P("E",1));
+		ppp.Add(new P("T",2));
+		ppp.Add(new P("T",3));
+		
+		var test=from t in ppp where t.pris>2 select new {t.prod,t.pris};
+		
+		foreach (var tempp in test)
+					Console.WriteLine(tempp.pris);
+		
+		Console.WriteLine(pp.ToString());
+	}
+}
