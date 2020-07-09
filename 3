@@ -1,0 +1,47 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+					
+public class Product: Object
+{
+	public string prod {get;set;}
+	public int pris {get;set;}
+
+	public Product(){}
+
+	public Product(string p1, int p2)
+	{
+		prod=p1;
+		pris=p2;
+	}
+	
+	public override string ToString()
+	{
+		return "Overrided";
+	}
+} 
+
+
+public class Program
+{
+	public static void Main()
+	{
+		Product pp=new Product("Prod",2);
+
+		List<Product> ppp=new List<Product>();
+		ppp.Add(new Product("One",1));
+		Product pr=new Product{
+			prod="T",
+			pris=2
+		};
+		ppp.Add(pr);
+		ppp.Add(new Product("Three",3));
+		
+		IEnumerable<Product> test=from t in ppp where t.pris > 2 select t;
+		
+		foreach (var tempp in test)
+					Console.WriteLine(tempp.pris);
+		
+		Console.WriteLine(pp.ToString());
+	}
+}
