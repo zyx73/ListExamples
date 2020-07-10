@@ -1,0 +1,33 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+					
+public class Program
+{
+	
+	class A
+	{
+		public A(string s)
+		{
+			Console.WriteLine(("A"+s));
+		}
+	}
+	
+	class B:A
+	{
+		public B(string s):base("a")
+		{
+			Console.WriteLine(("B"+s));
+		}
+	}
+	
+	public static void Main()
+	{
+		B b=new B("c");	
+		//Aa
+		//Bc
+	}
+	
+
+}
