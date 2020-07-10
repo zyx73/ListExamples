@@ -1,0 +1,20 @@
+using System;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Collections.Generic;
+					
+public class Program
+{
+	public delegate string TestDel(string Name);
+	
+	public static void Main()
+	{
+		TestDel td=new TestDel(Method);
+		Console.WriteLine(td("Hello"));
+	}
+	
+	private static string Method(string Name)
+	{
+		return "Del"+Name;
+	}
+}
