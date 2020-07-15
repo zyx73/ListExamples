@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
+
+namespace NN1
+{
+    public partial class Form1 : Form
+    {
+
+        //This is same as...
+        private int MultSum(IEnumerable<int> values, int m)
+        {
+            return values.Select((v,i)=>v*m).Sum();
+        }
+
+        //...this and the same as...
+        private int MultSum2(IEnumerable<int> values, int m) => values.Select((v, i) => v * m).Sum();
+        
+        //...this.
+        private int MultSum3(IEnumerable<int> values, int m)
+        {
+            int iii = 0;
+            foreach (var vv in values)
+                iii += vv * 1;
+            return iii;
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            List<int> v = new List<int>();
+
+            for (int n = 0; n < 10000; n++)
+                v.Add(n);
+
+            int f = MultSum(v, 1);
+            f = MultSum2(v, 1);
+            f = MultSum3(v, 1);
+        }
+    }
+}
