@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace IComp
+{
+    class P : IComparer<P>
+    {
+        public string frist { get; private set; }
+        public string last { get; private set; }
+
+        public P(string f, string e)
+        {
+            frist = f;
+            last = e;
+        }
+
+        public int Compare(P p1, P p2)
+        {
+            int s = 0;
+            if (p1.last==p2.last)
+                s = 1;
+            return s;
+        }
+    }
+
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string ss;
+            P p1 = new P("A", "B");
+            P p2 = new P("C", "B");
+            P p3 = new P("C", "A");
+            if (p1.Compare(p1, p2)==1)
+                ss = "samma enamn";
+            if (p1.Compare(p1, p3) == 1)
+                ss = "samma enamn";
+        }
+    }
+}
