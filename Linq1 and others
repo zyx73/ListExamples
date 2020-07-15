@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace NN1
+{
+    public partial class Form1 : Form
+    {
+
+        private float MultSum(IEnumerable<float> values, IReadOnlyList<float> mults)
+        {
+            return values.Select((v,i)=>v*mults[i]).Sum();
+        }
+
+        private float Sigmoid(float x) => 1f / (1f + (float)Math.Exp(-x));
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            this.Click += (s, e) => { MessageBox.Show(((MouseEventArgs)e).Location.ToString());};
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            IEnumerable<float> v = new List<float> { 1, 2, 3, 4 };
+            IReadOnlyList<float> i = new List<float> { 10, 10, 10, 10 };
+            
+
+            float f = MultSum(v, i);
+
+
+            string[] ff = { "a", "b", "c" };
+
+            var q = ff.Select((ord, index) => new { index, ord });
+            foreach (var vv in q)
+            {
+                Console.WriteLine(vv);
+            }
+
+        }
+    }
+}
